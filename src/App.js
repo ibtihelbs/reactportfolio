@@ -18,12 +18,38 @@ import {
   ZoomIn
 } from "react-scroll-motion";
 function App() {
+  const ZoomInScrollOut = batch( FadeIn(), ZoomIn());
+  const FadeUp = batch(Fade(), Move());
   return (
+
     <div className="App bg-pink scroll-smooth">
-       <Hero/>
-       <About/>
-       <Work/>
-       <Contact/>
+      <ScrollContainer>
+     <ScrollPage>
+       <Animator animation={ZoomInScrollOut}>
+          <Hero/>
+       </Animator>
+     </ScrollPage>
+     <ScrollPage>
+       <Animator animation={ZoomInScrollOut}>
+         <About/>
+       </Animator>
+     </ScrollPage>
+     <ScrollPage>
+       <Animator animation={batch(Fade())}>
+         <Work/>
+       </Animator>
+     </ScrollPage>
+     <ScrollPage>
+       <Animator animation={batch(Fade())}>
+        <Contact/>
+       </Animator>
+     </ScrollPage>
+  </ScrollContainer>
+   
+      
+       
+       
+
     </div>
   );
 }

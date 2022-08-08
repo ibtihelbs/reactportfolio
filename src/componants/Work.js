@@ -2,6 +2,20 @@ import { useState, useEffect } from 'react';
 import Data from '../data.json';
 import MiniNav from './MiniNav';
 import CurrentWork from './CurrentWork';
+import {
+  Animator,
+  ScrollContainer,
+  ScrollPage,
+  batch,
+  Fade,
+  FadeIn,
+  Move,
+  MoveIn,
+  MoveOut,
+  Sticky,
+  StickyIn,
+  ZoomIn
+} from "react-scroll-motion";
 const Work = () =>{
     const [dataArray, setDataArray]= useState([])
     useEffect(()=>{
@@ -9,12 +23,10 @@ const Work = () =>{
             setDataArray(Data)
          }
          getData();
-    },[dataArray])
-   
-    
+    },[dataArray]) 
     const [display, setDisplay] = useState(0);
     const current = dataArray[display];
-    console.log(current, dataArray[display])
+    
     return(
         <div id="Work" className="h-screen p-4">
           <h1 className ="text-[60px] py-4">Portfolio</h1>
